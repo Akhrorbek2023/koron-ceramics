@@ -1,4 +1,4 @@
-import AboutImage from '../../../public/HomeAboutImage.png'
+import AboutImage from '../../assets/HomeAboutImage.png'
 
 const HomeAbout = () => {
   return (

@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next'
 import translationRU from "../locale/translationRU";
 import translationEN from "../locale/translationEN";
 import { useCounterStore } from "../store/store";
+import  NavLogo  from '../assets/Logo.png'
 
 
 i18n.use(initReactI18next).init({
@@ -44,7 +45,7 @@ const Navbar = ({navLinks}:NavbarProps) => {
           <ul className="flex justify-between items-center">
             <li>
               <Link  to={''}>
-                 <img className="w-[90px]" src="../../public/Logo.png" alt="" />
+                 <img className="w-[90px]" src={NavLogo} alt="" />
               </Link>
             </li>
             {

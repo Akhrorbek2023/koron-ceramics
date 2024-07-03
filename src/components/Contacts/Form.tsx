@@ -7,7 +7,7 @@ const Form = () => {
     return (
         <div className="mx-auto">
             <div className="flex justify-between p-5 bg-[#1D1D1D] rounded-xl">
-                <div className="bg-[url('../../../public/ContactsImage.png')] w-[35%] bg-cover bg-center h-[600px] rounded-xl text-white p-7 relative">
+                <div className="formImage w-[35%] bg-cover bg-center h-[600px] rounded-xl text-white p-7 relative">
                    <h1 className='text-[26px] mb-3'>Контактная информация</h1>
                    <p className='mb-8'>Скажите что-нибудь, чтобы начать чат!</p>
                    <div>

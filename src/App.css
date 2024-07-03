@@ -1,5 +1,13 @@
 .container{
+    width: 100%;
     max-width: 1040px;
     padding: 0 16px;
     margin: 0 auto;
+}
+.header{
+    background-image: url('./assets/HeaderImage.png');
+}
+
+.formImage{
+    background-image: url('./assets//ContactsImage.png');
 }

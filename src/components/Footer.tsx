@@ -1,5 +1,5 @@
 import { faFacebookF, faInstagram, faTelegram } from '@fortawesome/free-brands-svg-icons'
-import FooterLogo from '../../public/FooterLogo.png'
+import FooterLogo from '../assets/FooterLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';

@@ -1,4 +1,4 @@
-import CardImage from '../../public/ProductCardImage.png'
+import CardImage from '../assets/ProductCardImage.png'
 interface itemProps {
  src: string;
  title: string;
