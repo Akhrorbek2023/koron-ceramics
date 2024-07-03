@@ -1,4 +1,4 @@
-import CarouselText from "../carausel/Carausel"
+
 
 
 
@@ -6,8 +6,8 @@ import CarouselText from "../carausel/Carausel"
 
 const Header = () => {
   return (
-    <div className="bg-[url('../../../public/HeaderImage.png')] bg-cover bg-center w-full h-[100vh] overflow-hidden">
-       <CarouselText/>
+    <div className="bg-[url('../../../public/HeaderImage.png')] bg-cover bg-center w-full h-[100vh] overflow-hidden flex items-center">
+      
     </div>
   )
 }
