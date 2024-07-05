@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { items } from '../apiProducts';
 import Modal from '../Modals/Modal';
+import { useTranslation } from 'react-i18next';
 
 interface ItemProps {
     src: string;
@@ -14,31 +15,39 @@ const SinglePage: React.FC = () => {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
+    const { t } = useTranslation();
+
     const params = useParams();
     const itemId = parseInt(params.id || '0', 10);
     const item: ItemProps | undefined = items.find((_, i) => i === itemId);
 
     return (
-        <div className=" text-white min-h-screen flex items-center justify-center">
-            <div className="container">
-                <div className="w-full rounded-lg shadow-lg flex justify-center items-center">
+        <div className="bg-[#1f1f1f] text-white min-h-screen flex items-center justify-center p-4">
+            <div className="header bg-cover bg-center w-full h-[40vh] md:h-[50vh] lg:h-[60vh]">
+                <div className="w-full h-full flex justify-center items-center">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white uppercase">{t('prod')}</h1>
+                </div>
+            </div>
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
                     {item ? (
                         <>
-                            <div className="w-[50%]">
+                            <div className="md:w-1/2">
                                 <img
                                     src={item.src}
                                     alt={item.description}
-                                    className="w-full h-[420px] rounded-2xl object-fill"
+                                    className="w-full h-auto rounded-2xl object-cover"
                                 />
                             </div>
-                            <div className="ml-6 w-[50%]">
-                                <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
-                                <p className="text-lg mb-4">
+                            <div className="md:w-1/2 flex flex-col justify-center">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{item.title}</h2>
+                                <p className="text-base md:text-lg lg:text-xl mb-6">
                                     {item.description}
                                 </p>
                                 <button
                                     onClick={openModal}
-                                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"
+                                >
                                     ЗАКАЗАТЬ
                                 </button>
                             </div>
