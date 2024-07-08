@@ -19,7 +19,7 @@ const DynamicPagination = () => {
 
   return (
     <div className="p-4">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-4 mb-6 md:mb-10 lg:mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-4 mb-6 md:mb-10 lg:mb-12">
         {selectedItems.map((item, index) => (
           <ProductCard
             key={index}
