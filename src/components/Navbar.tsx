@@ -38,12 +38,12 @@ const Navbar = ({ navLinks }: NavbarProps) => {
   };
 
   return (
-    <div className="z-50 w-full absolute top-0">
+    <div className="z-50 w-full absolute top-0 py-2">
       <div className="container mx-auto px-4 text-white">
         <nav>
           <div className="flex items-center justify-between">
             <Link to="">
-              <img className="w-[90px]" src={NavLogo} alt="Logo" />
+              <img className="max-w-[90px]" src={NavLogo} alt="Logo" />
             </Link>
             {/* Hamburger icon */}
             <button
@@ -69,7 +69,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
             <ul className="hidden md:flex flex-row justify-between items-center lg:space-x-20 md:space-x-10 sm:space-x-10">
               {navLinks.map((item) => (
                 <li key={item.id}>
-                  <Link className="uppercase" to={item.path}>
+                  <Link className="uppercase  hover:text-[#71CCAE]" to={item.path}>
                     {link === 'en' ? item.nameEN : item.nameRU}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
               <li>
                 <select
                   onChange={changeLang}
-                  className="border-none bg-transparent leading-tight focus:outline-none text-black"
+                  className="border-none bg-transparent leading-tight focus:outline-none text-white  hover:text-[#71CCAE]"
                 >
                   <option value="ru">RU</option>
                   <option value="en">EN</option>

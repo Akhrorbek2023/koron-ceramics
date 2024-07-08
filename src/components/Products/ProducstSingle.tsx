@@ -1,18 +1,25 @@
+import SinglePage from "./SinglePage";
 
-
-const SinglePage = () => {
+const ProducstSingle = () => {
   return (
-    <div className="bg-[#1f1f1f] p-6 rounded-lg shadow-md text-white">
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Product Title</h2>
-      <p className="text-sm md:text-base lg:text-lg mb-4">
-        This is a description of the product. You can add more details here.
-      </p>
-      <img src="your-image-url" alt="Product Image" className="w-full h-auto rounded-md" />
-      <button className="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
-        Buy Now
-      </button>
+    <div>
+      {/* Header */}
+      <div className="header bg-cover bg-center w-full h-[40vh] md:h-[50vh] lg:h-[60vh]">
+        <div className="w-full h-full flex justify-center items-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
+            ПРОДУКЦИЯ
+          </h1>
+        </div>
+      </div>
+      
+      {/* Main Content */}
+      <div className="bg-[#121212] py-10 md:py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <SinglePage />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default SinglePage;
+export default ProducstSingle;
