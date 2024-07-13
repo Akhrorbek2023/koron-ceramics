@@ -110,6 +110,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
                 >
                   <option value="ru">RU</option>
                   <option value="en">EN</option>
+                  <option value="uz">UZ</option>
                 </select>
               </li>
             </ul>
