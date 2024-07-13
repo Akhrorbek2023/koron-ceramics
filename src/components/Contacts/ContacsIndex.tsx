@@ -1,15 +1,19 @@
+import { useTranslation } from "react-i18next";
 import Form from "./Form";
 
 const ContacsIndex = () => {
+  const { t } = useTranslation();
   return (
     <div>
-      <div className="header bg-cover bg-center w-full h-[50vh] flex items-center justify-center">
-        <h1 className="text-[36px] md:text-[48px] font-[800] text-white uppercase">
-          СВЯЗЬ
-        </h1>
+      <div className="header bg-cover bg-center w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
+      <div className="w-full h-full flex justify-center items-center">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white uppercase">
+          {t('contact')}
+          </h1>
+        </div>
       </div>
       <div className="bg-[#121212] py-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+        <div className="container">
           <Form />
         </div>
       </div>

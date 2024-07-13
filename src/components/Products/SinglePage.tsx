@@ -1,45 +1,83 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { items } from '../apiProducts';
 import Modal from '../Modals/Modal';
+import { getDocs, collection, QuerySnapshot,DocumentData } from 'firebase/firestore';
+import { db } from '../../fireStore/config';
+import { useCounterStore } from '../../store/store';
 
-interface ItemProps {
+interface Data {
+  id: string ;
   src: string;
-  title: string;
-  description: string;
+  ru: {
+    title: string;
+    desc: string;
+    def: string
+  },
+  en: {
+    title: string;
+    desc: string;
+    def: string
+  },
+  uz: {
+    title: string;
+    desc: string;
+    def: string
+  },
 }
 
 const SinglePage: React.FC = () => {
+  const link = useCounterStore((state) => state.link);
+  const [data, setData] = useState<Data[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   const params = useParams();
-  const itemId = parseInt(params.id || '0', 10);
-  const item: ItemProps | undefined = items.find((_, i) => i === itemId);
+  const itemId = params.id;
+  console.log(typeof itemId)
+  const aboutMe = collection(db, 'koron')
+  useEffect(() => {
+    const getInfo = async () => {
+      try {
+        const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(aboutMe);
+        const dataList = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        } as Data));
+        console.log(dataList)
+        setData(dataList);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    getInfo();
+  }, [aboutMe]);
+  const item: Data | undefined = data.find((d) => d.id == itemId);
+ 
 
   return (
     <div className=" text-white  flex items-center justify-center">
       <div className="container">
-        <div className="flex flex-col md:flex-row gap-4 max-w-6xl mx-auto">
+        <div className="flex lg:justify-between flex-col md:flex-row gap-4 mx-auto">
           {item ? (
             <>
-              <div className="md:w-1/2">
+              <div className="w-[100%]">
                 <img
                   src={item.src}
-                  alt={item.description}
+                  alt={link === 'en' ? item.en.desc : link == 'uz' ? item.uz.desc : item.ru.desc}
                   className="w-[440px] h-auto rounded-2xl object-cover"
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center lg:w-9/10 w-full ">
                   <div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{item.title}</h2>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{link === 'en' ? item.en.title : link == 'uz' ? item.uz.title : item.ru.title }</h2>
                 <p className="text-base md:text-lg lg:text-xl mb-6">
-                  {item.description}
+                  {link === 'en' ? item.en.def : link == 'uz' ? item.uz.def : item.ru.def }
                 </p>
                 <button
                   onClick={openModal}
-                  className="inline bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"
+                  className="inline bg-[#71CCAE] hover:bg-[#71CCAE] text-white font-bold py-2 px-4 rounded-md"
                 >
                   ЗАКАЗАТЬ
                 </button>

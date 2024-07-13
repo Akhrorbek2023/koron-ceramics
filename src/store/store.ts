@@ -5,5 +5,5 @@ type counterStore = {
 }
 
 export const useCounterStore = create<counterStore>(() => ({
-    link: ''
+    link: 'ru'
 }))

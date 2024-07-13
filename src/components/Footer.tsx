@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { useCounterStore } from '../store/store';
+import { useTranslation } from 'react-i18next';
 
 interface NavLink {
     nameRU: string;
     nameEN: string;
+    nameUZ: string;
     path: string;
     id: number;
 }
@@ -17,6 +19,7 @@ interface NavbarProps {
 }
 
 const Footer = ({ navLinks }: NavbarProps) => {
+    const { t } = useTranslation();
     const link = useCounterStore((state) => state.link)
     return (
         <div className='py-10 bg-[#1D1D1D] text-white'>
@@ -25,7 +28,7 @@ const Footer = ({ navLinks }: NavbarProps) => {
                     <div className='mb-4 md:mb-0'>
                         <img className='w-[150px] md:w-[200px] mb-3' src={FooterLogo} alt="Logo" />
                         <p className='w-full md:w-[350px] mb-2'>
-                            Частное предприятие KORON CERAMICS, производитель керамические изделия- была основана в декабре 2002 года.
+                            {t('footerDesc')}
                         </p>
                         <div className='flex gap-4'>
                             <Link to={'https://www.facebook.com/koronrishtan'}>
@@ -45,7 +48,7 @@ const Footer = ({ navLinks }: NavbarProps) => {
                                 navLinks.map((item) => (
                                     <li key={item.id} className='mb-3'>
                                         <Link className='capitalize hover:text-[#71CCAE]' to={item.path}>
-                                            {link === 'en' ? item.nameEN : item.nameRU}
+                                        {link === 'en' ? item.nameEN : link == 'uz' ? item.nameUZ : item.nameRU  }
                                         </Link>
                                     </li>
                                 ))
@@ -55,7 +58,7 @@ const Footer = ({ navLinks }: NavbarProps) => {
                     <div>
                         <ul>
                             <li className='mb-3'>
-                                Контактная информация
+                                {t('formInfoHead')}
                             </li>
                             <li className='mb-2 w-[200px]'>
                                 <Link className='flex' to={''}>
@@ -72,7 +75,7 @@ const Footer = ({ navLinks }: NavbarProps) => {
                             <li className='w-[250px]'>
                                 <Link className='flex' to={''}>
                                     <FontAwesomeIcon className='mr-4' icon={faLocationDot} />
-                                    Мастерская-музей риштонской керамики
+                                    {t('formMuseum')}
                                 </Link>
                             </li>
                         </ul>

@@ -7,11 +7,13 @@ import translationEN from '../locale/translationEN';
 import { useCounterStore } from '../store/store';
 import NavLogo from '../assets/Logo.png';
 import Modal from './Modals/ModalNavbar'; // Modalni import qilamiz
+import translationUZ from '../locale/translationUZ';
 
 i18n.use(initReactI18next).init({
   resources: {
     ru: { translation: translationRU },
-    en: { translation: translationEN }
+    en: { translation: translationEN },
+    uz: { translation: translationUZ },
   },
   lng: 'ru',
   fallbackLng: 'ru'
@@ -20,6 +22,7 @@ i18n.use(initReactI18next).init({
 interface NavLink {
   nameRU: string;
   nameEN: string;
+  nameUZ: string;
   path: string;
   id: number;
 }
@@ -70,7 +73,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
               {navLinks.map((item) => (
                 <li key={item.id}>
                   <Link className="uppercase  hover:text-[#71CCAE]" to={item.path}>
-                    {link === 'en' ? item.nameEN : item.nameRU}
+                    {link === 'en' ? item.nameEN : link == 'uz' ? item.nameUZ : item.nameRU  }
                   </Link>
                 </li>
               ))}
@@ -81,6 +84,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
                 >
                   <option value="ru">RU</option>
                   <option value="en">EN</option>
+                  <option value="uz">UZ</option>
                 </select>
               </li>
             </ul>
@@ -95,7 +99,7 @@ const Navbar = ({ navLinks }: NavbarProps) => {
                     to={item.path}
                     onClick={() => setIsModalOpen(false)}
                   >
-                    {link === 'en' ? item.nameEN : item.nameRU}
+                    {link === 'en' ? item.nameEN : link == 'uz' ? item.nameUZ : item.nameRU  }
                   </Link>
                 </li>
               ))}

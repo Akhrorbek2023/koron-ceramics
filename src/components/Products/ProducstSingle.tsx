@@ -1,13 +1,15 @@
+import { useTranslation } from "react-i18next";
 import SinglePage from "./SinglePage";
 
 const ProducstSingle = () => {
+  const { t } = useTranslation()
   return (
     <div>
       {/* Header */}
       <div className="header bg-cover bg-center w-full h-[40vh] md:h-[50vh] lg:h-[60vh]">
         <div className="w-full h-full flex justify-center items-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">
-            ПРОДУКЦИЯ
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white uppercase">
+            {t('prod')}
           </h1>
         </div>
       </div>
