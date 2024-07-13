@@ -1,5 +1,33 @@
 import { useTranslation } from "react-i18next";
 import AchivmentCard from "./AchivmentCard"
+import Diplom from '../../assets/DIPLOM-1.jpg'
+import Diplom2 from '../../assets/DARAJALI-1.jpg'
+import Diplom3 from '../../assets/GUVOHNOMA.jpg'
+interface cerProps  {
+    id: number,
+    title: string,
+    src: string,
+}
+const certificates: cerProps[] = [
+  {
+    id:1,
+    title:'',
+    src: Diplom
+
+  },
+  {
+    id:2,
+    title:'',
+    src: Diplom2
+
+  },
+  {
+    id:3,
+    title:'',
+    src: Diplom3
+
+  }
+]
 
 
 const AchivmentIndex = () => {
@@ -13,11 +41,16 @@ const AchivmentIndex = () => {
        </div>
      <div className="py-20 bg-[#121212] ">
      <div className="container">
-        <div className="grid grid-cols-2 place-items-center gap-8 ">
-          <AchivmentCard/>
-          <AchivmentCard/>
-          <AchivmentCard/>
-          <AchivmentCard/>
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 place-items-center gap-10 ">
+          {
+            certificates.map((item) => (
+              <AchivmentCard
+              key={item.id}
+              src={item.src}
+              title={item.title}
+              />
+            ))
+          }
         </div>
       </div>
      </div>
