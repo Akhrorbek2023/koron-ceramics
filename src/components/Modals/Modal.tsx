@@ -57,8 +57,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <select
               className="w-full p-2 rounded bg-[#4e4e4e] focus:bg-[#4e4e4e] text-white placeholder-gray-400 focus:outline-none"
             >
-              <option>Розница</option>
-              <option>Опт</option>
+              <option>{t('retail')}</option>
+              <option>{t('wholesale')}</option>
             </select>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-end">
