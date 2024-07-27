@@ -11,7 +11,7 @@ const HomeAbout = () => {
           <p className='leading-loose w-full md:w-[50%] text-[#A1A1AA]'>
             {t('homeAboutText')}
           </p>
-          <img className='w-full md:w-[500px]' src={AboutImage} alt="Images" />
+          <img className='w-full md:w-[400px]' src={AboutImage} alt="Images" />
         </div>
       </div>
     </div>

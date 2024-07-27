@@ -63,7 +63,7 @@ const Footer = ({ navLinks }: NavbarProps) => {
                             <li className='mb-2 w-[200px]'>
                                 <Link className='flex' to={''}>
                                     <FontAwesomeIcon className='mr-4' icon={faPhone} />
-                                    +37064003674
+                                    +998933749305
                                 </Link>
                             </li>
                             <li className='mb-2 w-[250px]'>

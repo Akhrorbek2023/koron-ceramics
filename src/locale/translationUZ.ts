@@ -25,6 +25,8 @@ const translationUZ = {
     formBtn: "Jo'natish",
     footerDesc: 'Keramika mahsulotlari ishlab chiqaruvchi KORON CERAMICS xususiy korxonasi 2002 yil dekabr oyida tashkil etilgan.',
     singleBtn: 'buyurtma',
+    retail:'Chakana savdo',
+    wholesale: 'Ulgurji'
     
 
 

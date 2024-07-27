@@ -22,7 +22,9 @@ const translationRU = {
     formTextareaPls: 'Сообщения..',
     formBtn: 'Отправить',
     footerDesc: 'Частное предприятие KORON CERAMICS, производитель керамические изделия- была основана в декабре 2002 года',
-    singleBtn: 'заказать'
+    singleBtn: 'заказать',
+    retail:'Розница',
+    wholesale: 'Опт'
 
 
 

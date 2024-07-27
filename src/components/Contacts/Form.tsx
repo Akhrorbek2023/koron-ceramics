@@ -80,8 +80,8 @@ const Form = () => {
                             </label>
                             <div className="relative">
                                 <select className="block appearance-none w-full bg-[#4e4e4e] font-[400] text-gray-400 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-[#4e4e4e] focus:border-gray-500 " id="difference">
-                                    <option>Розница</option>
-                                    <option>Опт</option>
+                                    <option>{t('retail')}</option>
+                                    <option>{t('wholesale')}</option>
                                 </select>
                                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
                                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
@@ -92,7 +92,7 @@ const Form = () => {
                     <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="message">
-                                {t('formTexarea')}
+                                {t('formTextarea')}
                             </label>
                             <textarea rows={6} className="appearance-none block w-full bg-[#4e4e4e] text-white rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#4e4e4e]" id="message" placeholder={t('formTextareaPls')}></textarea>
                         </div>

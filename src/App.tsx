@@ -11,6 +11,7 @@ import AchivmentIndex from './components/Achivment/AchivmentIndex'
 import ProducstSingle from './components/Products/ProducstSingle'
 import { useCounterStore } from './store/store'
 // import AdminForm from './AdminPanel'
+// import AdminForm from './AdminPanel'
 
 function App() {
   console.log(navLinks)
@@ -36,7 +37,7 @@ function App() {
           <Footer navLinks={navLinks} />
       
       {/* <Routes>
-        
+      <Route path='/admin' element={<AdminForm />} />
       </Routes> */}
     </>
   )

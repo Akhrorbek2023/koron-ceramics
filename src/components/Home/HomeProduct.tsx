@@ -51,7 +51,7 @@ const HomeProduct = () => {
     };
 
     getInfo();
-  }, [aboutMe]);
+  }, []);
   return (
     <div className="bg-[#1D1D1D] text-white py-10 md:py-20">
       <div className="container mx-auto px-4">

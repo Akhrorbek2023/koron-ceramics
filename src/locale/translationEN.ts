@@ -25,6 +25,8 @@ const translationEN = {
     formBtn: 'Send',
     footerDesc: 'Private enterprise KORON CERAMICS, a manufacturer of ceramic products, was founded in December 2002',
     singleBtn: 'order',
+     retail:'Retail',
+    wholesale: 'Wholesale'
     
 
 
