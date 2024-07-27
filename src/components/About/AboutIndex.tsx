@@ -49,7 +49,7 @@ const AboutIndex = () => {
         </div>
       </div>
       <HomeAbout />
-      <div className="bg-[#121212] py-20">
+      <div className="bg-[#121212] pb-20">
         <div className="container">
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center  lg:gap-5 md:gap-4 sm:gap-3 gap-y-5">
             {

@@ -4,6 +4,7 @@ import Modal from '../Modals/Modal';
 import { getDocs, collection, QuerySnapshot,DocumentData } from 'firebase/firestore';
 import { db } from '../../fireStore/config';
 import { useCounterStore } from '../../store/store';
+import { useTranslation } from 'react-i18next';
 
 interface Data {
   id: string ;
@@ -26,6 +27,7 @@ interface Data {
 }
 
 const SinglePage: React.FC = () => {
+  const { t } = useTranslation();
   const link = useCounterStore((state) => state.link);
   const [data, setData] = useState<Data[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,7 +81,7 @@ const SinglePage: React.FC = () => {
                   onClick={openModal}
                   className="inline bg-[#71CCAE] hover:bg-[#71CCAE] text-white font-bold py-2 px-4 rounded-md"
                 >
-                  ЗАКАЗАТЬ
+                  {t('singleBtn')}
                 </button>
                   </div>
               </div>
