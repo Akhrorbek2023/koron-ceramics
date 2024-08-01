@@ -10,8 +10,8 @@ import ContacsIndex from './components/Contacts/ContacsIndex'
 import AchivmentIndex from './components/Achivment/AchivmentIndex'
 import ProducstSingle from './components/Products/ProducstSingle'
 import { useCounterStore } from './store/store'
-// import AdminForm from './AdminPanel'
-// import AdminForm from './AdminPanel'
+import AddDocumentForm from './AdminPanel'
+
 
 function App() {
   console.log(navLinks)
@@ -20,7 +20,10 @@ function App() {
 
   console.log(link)
   const param = useParams()
-  console.log(param)
+  const itemId = param.id
+
+  console.log(itemId);
+  
   return (
     <>
      
@@ -36,9 +39,9 @@ function App() {
           </Routes>
           <Footer navLinks={navLinks} />
       
-      {/* <Routes>
-      <Route path='/admin' element={<AdminForm />} />
-      </Routes> */}
+      <Routes>
+      <Route path='/admin' element={<AddDocumentForm />} />
+      </Routes>
     </>
   )
 }

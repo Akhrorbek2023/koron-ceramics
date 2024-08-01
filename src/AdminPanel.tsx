@@ -1,116 +1,134 @@
-// import React, { useState } from 'react';
-// import { doc, setDoc } from 'firebase/firestore';
-// import { db } from './fireStore/config';
+import React, { useState } from 'react';
+import { db, collection, addDoc } from './fireStore/config';
 
-// interface FormData {
-//   image: File | null;
-//   ru: {
-//     title: string;
-//     desc: string;
-//     def: string;
-//   };
-//   uz: {
-//     title: string;
-//     desc: string;
-//     def: string;
-//   };
-//   en: {
-//     title: string;
-//     desc: string;
-//     def: string;
-//   };
-// }
+const AddDocumentForm: React.FC = () => {
+    const [enDef, setEnDef] = useState('');
+    const [enDesc, setEnDesc] = useState('');
+    const [enTitle, setEnTitle] = useState('');
+    const [ruDef, setRuDef] = useState('');
+    const [ruDesc, setRuDesc] = useState('');
+    const [ruTitle, setRuTitle] = useState('');
+    const [uzDef, setUzDef] = useState('');
+    const [uzDesc, setUzDesc] = useState('');
+    const [uzTitle, setUzTitle] = useState('');
 
-// const AdminForm: React.FC = () => {
-//   const [formData, setFormData] = useState<FormData>({
-//     image: null,
-//     ru: { title: '', desc: '', def: '' },
-//     uz: { title: '', desc: '', def: '' },
-//     en: { title: '', desc: '', def: '' },
-//   });
+    const handleAddDocument = async () => {
+        const newDoc = {
+            en: { def: enDef, desc: enDesc, title: enTitle },
+            ru: { def: ruDef, desc: ruDesc, title: ruTitle },
+            uz: { def: uzDef, desc: uzDesc, title: uzTitle },
+        };
+        try {
+            await addDoc(collection(db, 'koron'), newDoc);
+            alert('Document added successfully');
+            setEnDef('')
+            setEnDesc('')
+            setEnTitle('')
+            setRuDef('')
+            setRuDesc('')
+            setRuTitle('')
+            setUzDef('')
+            setUzDesc('')
+            setUzTitle('')
+        } catch (error) {
+            console.error('Error adding document: ', error);
+        }
+    };
 
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: keyof FormData, lang: keyof FormData['title'] | '') => {
-//     const { value, files } = e.target;
-//     if (field === 'image') {
-//       setFormData((prevData) => ({
-//         ...prevData,
-//         [field]: files ? files[0] : null
-//       }));
-//     } else {
-//       setFormData((prevData) => ({
-//         ...prevData,
-//         [field]: { ...prevData[field as keyof FormData['']], [lang]: value }
-//       }));
-//     }
-//   };
+    return (
+        <div className="bg-white p-6 rounded shadow-md w-[80%]  mx-auto my-20">
+            <h2 className="text-2xl font-bold mb-4">Add New Document</h2>
+            <div className='grid grid-cols-3 gap-5'>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">English Definition</label>
+                    <input
+                        type="text"
+                        value={enDef}
+                        onChange={(e) => setEnDef(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">English Description</label>
+                    <input
+                        type="text"
+                        value={enDesc}
+                        onChange={(e) => setEnDesc(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">English Title</label>
+                    <input
+                        type="text"
+                        value={enTitle}
+                        onChange={(e) => setEnTitle(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Russian Definition</label>
+                    <input
+                        type="text"
+                        value={ruDef}
+                        onChange={(e) => setRuDef(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Russian Description</label>
+                    <input
+                        type="text"
+                        value={ruDesc}
+                        onChange={(e) => setRuDesc(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Russian Title</label>
+                    <input
+                        type="text"
+                        value={ruTitle}
+                        onChange={(e) => setRuTitle(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Uzbek Definition</label>
+                    <input
+                        type="text"
+                        value={uzDef}
+                        onChange={(e) => setUzDef(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Uzbek Description</label>
+                    <input
+                        type="text"
+                        value={uzDesc}
+                        onChange={(e) => setUzDesc(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">Uzbek Title</label>
+                    <input
+                        type="text"
+                        value={uzTitle}
+                        onChange={(e) => setUzTitle(e.target.value)}
+                        className="mt-1 p-2 w-full border rounded"
+                    />
+                </div>
+            </div>
+            <button
+                onClick={handleAddDocument}
+                className="mt-4 p-2 bg-blue-500 text-white rounded "
+            >
+                Add Document
+            </button>
+        </div>
+    );
+}
 
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     try {
-//       await setDoc(doc(db, "koron", formData.en.title), formData);
-//       alert('Form submitted successfully');
-//     } catch (error) {
-//       console.error("Error adding document: ", error);
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-20">
-//       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-5xl">
-//         <h2 className="text-3xl font-bold mb-8 text-gray-800">Add New Item</h2>
-//         <form onSubmit={handleSubmit}>
-//           <div className="mb-6">
-//             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
-//               Upload Image
-//             </label>
-//             <input
-//               type="file"
-//               id="image"
-//               name="image"
-//               accept="image/*"
-//               onChange={(e) => handleChange(e, 'image', '')}
-//               className="w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-//             />
-//           </div>
-          
-//           {['title', 'desc', 'def'].map((field) => (
-//             ['ru', 'en', 'uz'].map((lang) => (
-//               <div key={`${field}-${lang}`} className="mb-6">
-//                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={`${field}-${lang}`}>
-//                   {field.charAt(0).toUpperCase() + field.slice(1)} ({lang.toUpperCase()})
-//                 </label>
-//                 {field !== 'def' ? (
-//                   <input
-//                     type="text"
-//                     id={`${field}-${lang}`}
-//                     name={`${field}-${lang}`}
-//                     value={formData[field as keyof FormData][lang as keyof FormData['title']]}
-//                     onChange={(e) => handleChange(e, field as keyof FormData, lang as keyof FormData['title'])}
-//                     className="w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                   />
-//                 ) : (
-//                   <textarea
-//                     id={`${field}-${lang}`}
-//                     name={`${field}-${lang}`}
-//                     value={formData[field as keyof FormData][lang as keyof FormData['desc']]}
-//                     onChange={(e) => handleChange(e, field as keyof FormData, lang as keyof FormData['desc'])}
-//                     className="w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                   />
-//                 )}
-//               </div>
-//             ))
-//           ))}
-
-//           <button
-//             type="submit"
-//             className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-300"
-//           >
-//             Submit
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AdminForm;
+export default AddDocumentForm;

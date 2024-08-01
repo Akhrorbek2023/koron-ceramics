@@ -18,6 +18,8 @@ const translationRU = {
     formInputPhone: 'Телефон',
     formPhonePls: 'Введите свое имя',
     formInputSelect: 'Вид покупки',
+    formInputProd: 'Продукт',
+    formProdPls: 'Введите продукт',
     formTextarea : 'Сообщения',
     formTextareaPls: 'Сообщения..',
     formBtn: 'Отправить',
