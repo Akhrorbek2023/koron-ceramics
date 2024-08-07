@@ -10,7 +10,7 @@ import ContacsIndex from './components/Contacts/ContacsIndex'
 import AchivmentIndex from './components/Achivment/AchivmentIndex'
 import ProducstSingle from './components/Products/ProducstSingle'
 import { useCounterStore } from './store/store'
-import AddDocumentForm from './AdminPanel'
+
 
 
 function App() {
@@ -38,10 +38,6 @@ function App() {
             {/* <Route path='/admin' element={<AdminForm />} /> */}
           </Routes>
           <Footer navLinks={navLinks} />
-      
-      <Routes>
-      <Route path='/admin' element={<AddDocumentForm />} />
-      </Routes>
     </>
   )
 }
