@@ -36,7 +36,7 @@ const AchivmentIndex = () => {
   return (
     <>
      <Helmet>
-      <title>Achivment</title>
+      <title>Koron ceramics Achivment</title>
       <meta name="description" content="Team of Koron-ceramics's achivments and certificates " />
       <link rel="canonical" href="/achivments" />
     </Helmet>

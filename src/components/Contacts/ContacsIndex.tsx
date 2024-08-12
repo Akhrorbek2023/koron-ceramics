@@ -7,7 +7,7 @@ const ContacsIndex = () => {
   return (
     <>
       <Helmet>
-        <title>Contacts</title>
+        <title>Koron creamics Contacts</title>
         <meta name="description" content="Koron-ceramics form for buying ceramic dishes and items" />
         <link rel="canonical" href="/contacts" />
       </Helmet>

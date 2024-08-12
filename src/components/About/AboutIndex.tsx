@@ -10,7 +10,7 @@ const AboutIndex = () => {
   return (
     <>
     <Helmet>
-      <title>About</title>
+      <title>Koron ceramics About</title>
       <meta name="description" content="About our Koron-ceramics" />
       <link rel="canonical" href="/about" />
     </Helmet>

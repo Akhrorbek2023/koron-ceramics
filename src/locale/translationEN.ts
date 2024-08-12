@@ -4,7 +4,7 @@ const translationEN = {
     prod: 'product',
     certificate: 'certificate',
     contact: 'contact',
-    homeHeader: 'Welcome to Koron Creamics',
+    homeHeader: 'Welcome to Koron Ceramics',
     learnMore: 'To learn more',
     homeAboutText: "Considered the place where Uzbek national ceramic art meets exquisite taste, KORON CERAMICS offers you an elegant combination of your interior and exterior. The center, which was founded by master entrepreneur Ravshan Tajiddinov, brings together more than 50 talented craftsmen. Currently, the company “KORON CERAMICS” regularly exports its products to Russia, Georgia, Moldova, Latvia, Falastin, Germany and Ozarbaizhan. The Rishton pottery factory “KORON CERAMICS” occupies a two-story building: on the first floor the products are produced, and on the second floor there is a gallery of finished products. What is here? This catalog presents samples of folk crafts made in the pottery house “KORON CERAMICS”. You can choose from a variety of items that delight the eye with unique designs and colorful patterns. Enjoy unique chic patterns and national spirit!",
     allProducts: 'All products',

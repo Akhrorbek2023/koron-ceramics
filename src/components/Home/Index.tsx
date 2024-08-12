@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Products</title>
+        <title>Koron ceramics Home</title>
         <meta name="description" content="Koron-ceramics and koran-ceramics handmade ceramic dishes and items" />
         <link rel="canonical" href="/" />
       </Helmet>
